@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracciamento Punteggi Memory</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 60%;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px 0;
+            width: 80%;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .score-list {
+            margin-top: 20px;
+        }
+        .score-item {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Tracciamento Punteggi Memory</h1>
+    <input type="text" id="username" placeholder="Inserisci il tuo nome">
+    <input type="number" id="score" placeholder="Inserisci il punteggio">
+    <button onclick="saveScore()">Salva Punteggio</button>
+
+    <div class="score-list" id="score-list">
+        <!-- I punteggi salvati verranno visualizzati qui -->
+    </div>
+</div>
+
+<script>
+    function saveScore() {
+        const username = document.getElementById('username').value;
+        const score = document.getElementById('score').value;
+
+        if (username && score) {
+            const scoreItem = document.createElement('div');
+            scoreItem.className = 'score-item';
+            scoreItem.innerText = `Nome: ${username} - Punteggio: ${score}`;
+            document.getElementById('score-list').appendChild(scoreItem);
+        } else {
+            alert('Per favore inserisci il nome e il punteggio.');
+        }
+    }
+</script>
+
+</body>
+</html>
