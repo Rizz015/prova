@@ -36,6 +36,41 @@
         }
     </style>
 </head>
+
+    
+<script>
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://firebase.google.com/docs/web/setup#available-libraries";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+    
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBKfrNksHQ5POnLJK4FR2mkiSqiojJtlME",
+      authDomain: "prova-7a380.firebaseapp.com",
+      projectId: "prova-7a380",
+      storageBucket: "prova-7a380.firebasestorage.app",
+      messagingSenderId: "376765382187",
+      appId: "1:376765382187:web:88564a125968ac82ffb46e"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    // Funzione per salvare un dato nel database
+    function salvaDati() {
+    set(ref(db, "testo/"), {
+      messaggio: "Ciao da Firebase!"
+    }).then(() => {
+      alert("Dati salvati con successo!");
+    }).catch((error) => {
+      console.error("Errore nel salvataggio:", error);
+    });
+  }
+
+</script>
+<button onclick="salvaDati()">Salva su Firebase</button>
+    
 <body>
 
 <div class="container">
